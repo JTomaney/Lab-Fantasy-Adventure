@@ -1,6 +1,9 @@
 package players;
 
-public abstract class Player {
+import behaviours.IAttack;
+import behaviours.ITakeDmg;
+
+public abstract class Player implements ITakeDmg {
 
     private String name;
     private int hp;

@@ -1,9 +1,7 @@
 package players.casters;
 
 import behaviours.IAttack;
-import familiars.Dragon;
 import familiars.Familiar;
-import familiars.Skeleton;
 import items.Spell;
 import players.Player;
 
