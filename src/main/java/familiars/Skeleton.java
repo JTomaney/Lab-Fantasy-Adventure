@@ -1,4 +1,8 @@
 package familiars;
 
-public class Skeleton {
+public class Skeleton extends Familiar{
+
+    public Skeleton(String name) {
+        super(name, 1);
+    }
 }
