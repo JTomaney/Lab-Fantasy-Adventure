@@ -58,8 +58,13 @@ public class DwarfTest {
     }
 
     @Test
-    public void takeDmg() {
+    public void canTakeDmg() {
         dwarf.takeDmg(50);
         assertEquals(10, dwarf.getHp());
+    }
+
+    @Test
+    public void canAttack() {
+        assertEquals(8, dwarf.attack());
     }
 }

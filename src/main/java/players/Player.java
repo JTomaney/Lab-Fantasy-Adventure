@@ -4,11 +4,13 @@ public abstract class Player {
 
     private String name;
     private int hp;
+    private int maxHp;
     private int armourRating;
 
-    public Player(String name, int hp, int armourRating) {
+    public Player(String name, int hp, int maxHp, int armourRating) {
         this.name = name;
         this.hp = hp;
+        this.maxHp = maxHp;
         this.armourRating = armourRating;
     }
 
@@ -34,6 +36,12 @@ public abstract class Player {
 
     public void takeDmg(int dmg) {
         int mitigatedDmg = dmg - this.armourRating;
+        if (mitigatedDmg > 0){
         this.hp -= mitigatedDmg;
+        }
+    }
+
+    public int getMaxHp() {
+        return this.maxHp;
     }
 }

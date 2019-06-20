@@ -1,18 +1,19 @@
 package players.casters;
 
+import behaviours.IAttack;
 import familiars.Dragon;
 import familiars.Familiar;
 import familiars.Skeleton;
 import items.Spell;
 import players.Player;
 
-public abstract class Caster extends Player {
+public abstract class Caster extends Player implements IAttack {
 
     private Spell spell;
     private Familiar familiar;
 
-    public Caster(String name, int hp, int armourRating, Spell spell, Familiar familiar) {
-        super(name, hp, armourRating);
+    public Caster(String name, int hp, int maxHp, int armourRating, Spell spell, Familiar familiar) {
+        super(name, hp, maxHp, armourRating);
         this.spell = spell;
         this.familiar = familiar;
     }
@@ -31,5 +32,14 @@ public abstract class Caster extends Player {
 
     public  void setFamiliar(Familiar familiar) {
         this.familiar = familiar;
+    }
+
+    public void takeDmg(int dmg) {
+        dmg -= this.familiar.getDmgShare();
+        int mitigatedDmg = dmg - this.getArmourRating();
+        if (mitigatedDmg > 0){
+            int newHp = this.getHp() - mitigatedDmg;
+            this.setHp(newHp);
+        }
     }
 }

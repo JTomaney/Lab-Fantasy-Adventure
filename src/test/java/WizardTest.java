@@ -76,8 +76,13 @@ public class WizardTest {
     }
 
     @Test
-    public void takeDmg() {
+    public void canTakeDmg() {
         wizard.takeDmg(10);
-        assertEquals(10, wizard.getHp());
+        assertEquals(11, wizard.getHp());
+    }
+
+    @Test
+    public void canAttack() {
+        assertEquals(16, wizard.attack());
     }
 }

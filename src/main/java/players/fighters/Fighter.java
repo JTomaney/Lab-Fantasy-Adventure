@@ -1,14 +1,15 @@
 package players.fighters;
 
+import behaviours.IAttack;
 import items.weapons.Weapon;
 import players.Player;
 
-public abstract class Fighter extends Player {
+public abstract class Fighter extends Player implements IAttack {
 
     private Weapon weapon;
 
-    public Fighter (String name, int hp, int armourRating, Weapon weapon) {
-        super(name, hp, armourRating);
+    public Fighter (String name, int hp, int maxHp, int armourRating, Weapon weapon) {
+        super(name, hp, maxHp, armourRating);
         this.weapon = weapon;
     }
 

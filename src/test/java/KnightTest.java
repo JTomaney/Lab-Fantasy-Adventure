@@ -57,8 +57,13 @@ public class KnightTest {
     }
 
     @Test
-    public void takeDmg() {
+    public void canTakeDmg() {
         knight.takeDmg(40);
         assertEquals(10, knight.getHp());
+    }
+
+    @Test
+    public void canAttack() {
+        assertEquals(10, knight.attack());
     }
 }
